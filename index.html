@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        #heading{
+            width:100%;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: #00FFFF ;
+            padding:30px;
+        }
+        body{
+            background-color: #F0FFFF;
+        }
+        #number{
+            border:5px solid black;
+            font-size:30px;
+            text-align: center;
+            margin-top: 50px;
+            height:100px;
+            padding:10px;
+        }
+        .btn{
+            background-color: hotpink;
+            width:100%;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="heading">This Page Generates Random Unique 8-digit Code</div>
+    <div class="container" id="body">
+        <div class="offset-4 col-4" >
+            <div id="number"></div><br><br>
+        <button class="btn" id="btn" onclick="show()">Click for your unique 8 digit code</button>
+    </div>
+
+    </div>
+
+    <script>
+        function code(num){
+            
+            var a=(Math.floor(Math.random()*10));
+            if((num.indexOf(a)+1)==0){
+                num.push(a);
+            }
+            
+            if(num.length<8){
+                return code(num);
+            }
+            else{
+                return (num.join(""));
+            }
+        }
+        function show(){
+            var number=[];
+            document.getElementById("number").innerHTML=code(number);
+        }
+        
+        
+    </script>
+</body>
+</html>
